@@ -117,17 +117,21 @@ class instaBot:
     
 
     def response(self):
-        self.driver.find_element_by_xpath("//div[contains(text(), 'german.santucho')]")\
+        self.goToInbox()
+        self.driver.find_element_by_xpath("//div[contains(text(), 'belen_molinari')]")\
             .click()
         sleep(4)
-        self.driver.find_element_by_xpath("//textarea")\
-                .send_keys("Mensaje Automatico")
-        self.driver.find_element_by_xpath("//button[contains(text(), 'Send')]")\
-                .click()       
-
+        cont = 0
+        while cont < 200:
+            self.driver.find_element_by_xpath("//textarea")\
+                    .send_keys("Mensaje Automatico")
+            self.driver.find_element_by_xpath("//button[contains(text(), 'Send')]")\
+                    .click()       
+            cont +=1
 
 if __name__ == "__main__":
     msg_bot = instaBot()
+    msg_bot.response()
     while True:
         sleep(60)
         msg_bot.newMessage()
