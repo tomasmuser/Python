@@ -1,6 +1,6 @@
 # Python-38
 
-Python university exercises. 
+University Python exercises. 
 
 Modules:
 
